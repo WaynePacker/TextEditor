@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:TextEditor.Theme">
+
+    <Color x:Key="Grey900">#212121</Color>
+
+    <SolidColorBrush x:Key="BaseLight" Color="White"/>
+    <SolidColorBrush x:Key="BaseDark" Color="Black"/>
+
+
+</ResourceDictionary>

@@ -116,6 +116,10 @@
       <Project>{ab975c6d-b888-4eb0-adb2-f80bc4276b92}</Project>
       <Name>TextEditor.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TextEditor.Theme\TextEditor.Theme.csproj">
+      <Project>{51becfb1-9e38-4629-af23-11d68d544a3f}</Project>
+      <Name>TextEditor.Theme</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

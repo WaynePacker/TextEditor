@@ -1,9 +1,10 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows.Input;
 
 namespace TextEditor.Interfaces
 {
-    public interface IUIController
+    public interface IUIController: INotifyPropertyChanged
     {   
         IDocument ActiveDocument { get; set; }
 

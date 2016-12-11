@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,9 +15,11 @@ using TextEditor.Interfaces;
 
 namespace TextEditor
 {
-    public class UIController : IUIController
+    public class UIController : IUIController, INotifyPropertyChanged
     {
         private static IUIController instance;
+        IDocument activeDocument;
+
 
         private UIController()
         {
@@ -42,17 +45,24 @@ namespace TextEditor
         {
             get
             {
-                throw new NotImplementedException();
+                return activeDocument;
             }
 
             set
             {
-                throw new NotImplementedException();
+                activeDocument = value;
+                RaisePropertyChanged(nameof(ActiveDocument));
             }
         }
 
         public ObservableCollection<IDocument> CurrentOpenFiles { get; set; }
 
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void RaisePropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         ICommand newCommand;
         ICommand openCommand;
@@ -90,6 +100,7 @@ namespace TextEditor
 
             fileViewModel = new Document(filepath);
             CurrentOpenFiles.Add(fileViewModel);
+            RaisePropertyChanged(nameof(CurrentOpenFiles));
             return fileViewModel;
         }
 

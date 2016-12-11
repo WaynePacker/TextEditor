@@ -19,3 +19,5 @@ C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor\bin\Debug\Tex
 C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor\obj\Debug\UIControls\Toolbar\Toolbar.g.cs
 C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor\obj\Debug\UIControls\Toolbar\Toolbar.baml
 C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor\bin\Debug\TextEditor.Theme.exe
+C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor\bin\Debug\TextEditor.Theme.pdb

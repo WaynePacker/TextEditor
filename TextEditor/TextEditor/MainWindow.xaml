@@ -5,17 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TextEditor"
         xmlns:controls="clr-namespace:TextEditor.UIControls"
+        xmlns:Theme="clr-namespace:TextEditor.Theme;assembly=TextEditor.Theme"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="700" Width="1050">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <controls:Toolbar Grid.Row="0"/>
+        <controls:Toolbar Grid.Row="0"
+                           OpenCommand="{Binding OpenCommand}"
+                           NewCommand="{Binding NewCommand}"/>
 
-        <TabControl x:Name="TheTabControl" ItemsSource="{Binding Files}" Grid.Row="1">
+        <TabControl x:Name="TheTabControl" ItemsSource="{Binding Files}" Grid.Row="1" SelectedItem="{Binding SelectedItem}">
             <TabControl.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Name}"/> 

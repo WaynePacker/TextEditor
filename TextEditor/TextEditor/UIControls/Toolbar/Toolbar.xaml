@@ -6,10 +6,10 @@
              xmlns:local="clr-namespace:TextEditor.UIControls"
              mc:Ignorable="d" 
             Height="50">
-    <Grid>
+    <Grid x:Name="LayoutRoot">
         <DockPanel LastChildFill="False">
-            <Button Content="Open"/>
-            <Button Content="New"/>
+            <Button Content="Open" Command="{Binding OpenCommand}"/>
+            <Button Content="New" Command="{Binding NewCommand}"/>
         </DockPanel>
     </Grid>
 </UserControl>
