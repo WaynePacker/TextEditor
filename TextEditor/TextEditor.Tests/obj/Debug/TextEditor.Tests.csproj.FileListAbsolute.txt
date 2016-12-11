@@ -1,0 +1,7 @@
+C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor.Tests\bin\Debug\TextEditor.Tests.dll
+C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor.Tests\bin\Debug\TextEditor.Tests.pdb
+C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor.Tests\bin\Debug\nunit.framework.dll
+C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor.Tests\bin\Debug\nunit.framework.xml
+C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor.Tests\obj\Debug\TextEditor.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor.Tests\obj\Debug\TextEditor.Tests.dll
+C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor.Tests\obj\Debug\TextEditor.Tests.pdb

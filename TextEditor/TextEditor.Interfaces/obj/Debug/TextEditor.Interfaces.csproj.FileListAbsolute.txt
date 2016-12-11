@@ -1,0 +1,5 @@
+C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor.Interfaces\bin\Debug\TextEditor.Interfaces.dll
+C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor.Interfaces\bin\Debug\TextEditor.Interfaces.pdb
+C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor.Interfaces\obj\Debug\TextEditor.Interfaces.csprojResolveAssemblyReference.cache
+C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor.Interfaces\obj\Debug\TextEditor.Interfaces.dll
+C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor.Interfaces\obj\Debug\TextEditor.Interfaces.pdb
