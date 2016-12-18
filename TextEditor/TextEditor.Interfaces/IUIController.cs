@@ -14,5 +14,8 @@ namespace TextEditor.Interfaces
         ICommand CloseCommand { get; }
 
         ObservableCollection<IDocument> CurrentOpenFiles { get; set; }
+
+        event PropertyChangedEventHandler ActiveDocumentChanged;
+        event PropertyChangedEventHandler CurrentOpenFilesChanged;
     }
 }

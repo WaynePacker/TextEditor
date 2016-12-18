@@ -30,7 +30,28 @@ namespace TextEditor
             closeCommand = new RelayCommand(p => OnClose(), p => CanClose());
 
             CurrentOpenFiles = new ObservableCollection<IDocument>();
+        }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler ActiveDocumentChanged;
+        public event PropertyChangedEventHandler CurrentOpenFilesChanged;
+ 
+        protected virtual void RaisePropertyChanged(string propertyName)
+        {
+            switch (propertyName)
+            {
+                case nameof(ActiveDocument):
+                    ActiveDocumentChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                    break;
+                case nameof(CurrentOpenFiles):
+                    CurrentOpenFilesChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                    break;
+         
+                default: PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                    break;
+            }
+
+            
         }
 
         public static IUIController Instance
@@ -50,19 +71,15 @@ namespace TextEditor
 
             set
             {
-                activeDocument = value;
-                RaisePropertyChanged(nameof(ActiveDocument));
+                if (activeDocument != value)
+                {
+                    activeDocument = value;
+                    RaisePropertyChanged(nameof(ActiveDocument));
+                }
             }
         }
 
         public ObservableCollection<IDocument> CurrentOpenFiles { get; set; }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void RaisePropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         ICommand newCommand;
         ICommand openCommand;

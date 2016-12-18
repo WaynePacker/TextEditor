@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using TextEditor.Base;
-using TextEditor.Components;
 using TextEditor.Interfaces;
 
 namespace TextEditor.ViewModel
@@ -19,27 +13,34 @@ namespace TextEditor.ViewModel
         {
             controller = UIController.Instance;
             Files = new ObservableCollection<IDocument>();
-            controller.PropertyChanged += Controller_PropertyChanged;
+            controller.ActiveDocumentChanged += Controller_ActiveDocumentChanged;
+            controller.CurrentOpenFilesChanged += Controller_CurrentOpenFilesChanged;
         }
 
-        private void Controller_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        private void Controller_CurrentOpenFilesChanged(object sender, PropertyChangedEventArgs e)
         {
             var updateSource = (IUIController)sender;
-            if (e.PropertyName == nameof(updateSource.CurrentOpenFiles))
-            {
-                Files = updateSource.CurrentOpenFiles;
-                RaisePropertyChanged(nameof(Files));
-            }
-            if(e.PropertyName == nameof(updateSource.ActiveDocument))
-            {
-                SelectedItem = updateSource.ActiveDocument;
-                RaisePropertyChanged(nameof(SelectedItem));
-            }
+            Files = updateSource.CurrentOpenFiles;
+            RaisePropertyChanged(nameof(Files));
+        }
+
+        private void Controller_ActiveDocumentChanged(object sender, PropertyChangedEventArgs e)
+        {
+            var updateSource = (IUIController)sender;
+            SelectedItem = updateSource.ActiveDocument;
+            RaisePropertyChanged(nameof(SelectedItem));
         }
 
         public ObservableCollection<IDocument> Files { get; set;}
 
-        public IDocument SelectedItem { get; set; }
+        public IDocument SelectedItem
+        {
+            get { return controller.ActiveDocument; }
+            set {
+                    if (controller.ActiveDocument != value)
+                        controller.ActiveDocument = value;
+                }
+        }
 
         public ICommand NewCommand { get { return controller.NewCommand; } }
 
