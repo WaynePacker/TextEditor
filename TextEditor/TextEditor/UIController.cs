@@ -128,22 +128,47 @@ namespace TextEditor
 
         private bool CanSave()
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         private void OnSave()
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(ActiveDocument.FilePath))
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog()
+                {
+                    Filter = "Text | *.txt",
+                    Title = "Save File"
+                };
+                
+                if (saveFileDialog.ShowDialog().GetValueOrDefault())
+                        ActiveDocument.FilePath = saveFileDialog.FileName;
+            }
+
+            File.WriteAllText(ActiveDocument.FilePath, ActiveDocument.Content);
+            ActiveDocument.HasChanges = false;
         }
 
         private bool CanClose()
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         private void OnClose()
         {
-            throw new NotImplementedException();
+            if (ActiveDocument.HasChanges)
+            {
+                var res = MessageBox.Show(string.Format("Save changes for file '{0}'?", ActiveDocument.Name), "Save Changes", MessageBoxButton.YesNoCancel);
+                if (res == MessageBoxResult.Cancel)
+                    return;
+                if (res == MessageBoxResult.Yes)
+                {
+                    OnSave();
+                }
+            }
+
+            CurrentOpenFiles.Remove(ActiveDocument);
+            ActiveDocument = CurrentOpenFiles.FirstOrDefault();
         }
     }
 

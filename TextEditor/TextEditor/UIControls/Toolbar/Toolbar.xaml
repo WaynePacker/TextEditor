@@ -10,6 +10,8 @@
         <DockPanel LastChildFill="False">
             <Button Content="Open" Command="{Binding OpenCommand}"/>
             <Button Content="New" Command="{Binding NewCommand}"/>
+            <Button Content="Save" Command="{Binding SaveCommand}"/>
+            <Button Content="Close" Command="{Binding CloseCommand}"/>
         </DockPanel>
     </Grid>
 </UserControl>

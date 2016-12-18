@@ -11,5 +11,6 @@ namespace TextEditor.Interfaces
         string Name { get; set; }
         string Content { get; set; }
         string FilePath { get; set; }
+        bool HasChanges { get; set; }
     }
 }
