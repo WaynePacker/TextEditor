@@ -16,6 +16,13 @@ namespace TextEditor.Components
             this.Name = filePath;
         }
 
+        public Document()
+        {
+            this.FilePath = "";
+            this.Content = "";
+            this.Name = "New File";
+        }
+
         public string Content { get; set; }
 
         public string FilePath { get; set; }

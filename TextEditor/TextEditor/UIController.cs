@@ -96,7 +96,10 @@ namespace TextEditor
 
         private void OnNew()
         {
-            throw new NotImplementedException();
+            var newDocument = new Document();
+            this.CurrentOpenFiles.Add(newDocument);
+            this.ActiveDocument = newDocument;
+            RaisePropertyChanged(nameof(CurrentOpenFiles));
         }
 
         private void OnOpen()
