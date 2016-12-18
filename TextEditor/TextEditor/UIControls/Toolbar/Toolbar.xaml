@@ -5,13 +5,36 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TextEditor.UIControls"
              mc:Ignorable="d" 
-            Height="50">
+            Height="30">
+
+    <UserControl.Resources>
+        <Style x:Key="ToolbarButton" TargetType="Button">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="1" Background="White">
+                            <TextBlock Text="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="LightGray" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
     <Grid x:Name="LayoutRoot">
         <DockPanel LastChildFill="False">
-            <Button Content="Open" Command="{Binding OpenCommand}"/>
-            <Button Content="New" Command="{Binding NewCommand}"/>
-            <Button Content="Save" Command="{Binding SaveCommand}"/>
-            <Button Content="Close" Command="{Binding CloseCommand}"/>
+            <Button Content="Open" Command="{Binding OpenCommand}" Style="{StaticResource ToolbarButton}"/>
+            <Button Content="New" Command="{Binding NewCommand}" Style="{StaticResource ToolbarButton}"/>
+            <Button Content="Save" Command="{Binding SaveCommand}" Style="{StaticResource ToolbarButton}"/>
+            <Button Content="Close" Command="{Binding CloseCommand}" Style="{StaticResource ToolbarButton}"/>
         </DockPanel>
     </Grid>
 </UserControl>

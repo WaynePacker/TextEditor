@@ -124,8 +124,6 @@ namespace TextEditor
             return fileViewModel;
         }
 
-
-
         private bool CanSave()
         {
             return true;
