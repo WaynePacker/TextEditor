@@ -118,7 +118,7 @@ namespace TextEditor
 
         private bool CanSave()
         {
-            return true;
+            return ActiveDocument != null;
         }
 
         private void OnSave()
@@ -141,7 +141,7 @@ namespace TextEditor
 
         private bool CanClose()
         {
-            return true;
+            return ActiveDocument != null;
         }
 
         private void OnClose(object documentToClose = null)

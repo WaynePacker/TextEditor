@@ -36,10 +36,7 @@ namespace TextEditor.ViewModel
         public IDocument SelectedItem
         {
             get { return controller.ActiveDocument; }
-            set {
-                    if (controller.ActiveDocument != value)
-                        controller.ActiveDocument = value;
-                }
+            set { controller.ActiveDocument = value;}
         }
 
         public ICommand NewCommand { get { return controller.NewCommand; } }
