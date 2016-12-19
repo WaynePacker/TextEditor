@@ -7,7 +7,11 @@
         xmlns:controls="clr-namespace:TextEditor.UIControls"
         xmlns:Theme="clr-namespace:TextEditor.Theme;assembly=TextEditor.Theme"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1050">
+        Title="Text Editor" Height="700" Width="1050">
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -26,7 +30,11 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Name}"/>
-                        <TextBlock Text="*" Visibility="{Binding HasChanges}"/>
+                        <TextBlock Text="*" Visibility="{Binding HasChanges,Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                        <Button Content="X" Command="{Binding RelativeSource={RelativeSource FindAncestor, 
+                                                        AncestorType={x:Type Window}}, Path=DataContext.CloseCommand}"  
+                                            CommandParameter="{Binding}"
+                                                        Height="15" Width="15" Margin="10,2,2,2"/>
                     </StackPanel>
                 </DataTemplate>
             </TabControl.ItemTemplate>

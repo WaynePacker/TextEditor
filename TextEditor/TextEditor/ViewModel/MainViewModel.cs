@@ -6,7 +6,7 @@ using TextEditor.Interfaces;
 
 namespace TextEditor.ViewModel
 {
-    public class MainViewModel : AViewModel
+    public class MainViewModel : ANotifyBase
     {
         private readonly IUIController controller;
         public MainViewModel()

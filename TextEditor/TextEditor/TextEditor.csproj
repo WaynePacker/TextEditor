@@ -56,11 +56,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="ANotifyBase.cs" />
+    <Compile Include="Document\ViewModel\Document.cs" />
     <Compile Include="UIController.cs" />
     <Compile Include="UIControls\Toolbar\Toolbar.xaml.cs">
       <DependentUpon>Toolbar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UIControls\Toolbar\ToolbarViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -107,10 +108,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TextEditor.Components\TextEditor.Components.csproj">
-      <Project>{6E9BC8F8-4156-419F-8616-D090F58C40EC}</Project>
-      <Name>TextEditor.Components</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TextEditor.Interfaces\TextEditor.Interfaces.csproj">
       <Project>{ab975c6d-b888-4eb0-adb2-f80bc4276b92}</Project>
       <Name>TextEditor.Interfaces</Name>

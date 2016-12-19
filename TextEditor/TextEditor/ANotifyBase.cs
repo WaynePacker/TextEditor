@@ -19,6 +19,12 @@ namespace TextEditor.Base
 
         protected virtual void SetAndRaisePropertyChanged<T>(ref T oldValue, T newValue, [CallerMemberName]string propertyName = "")
         {
+            if(oldValue == null)
+            {
+                oldValue = newValue;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+
             if(!oldValue.Equals(newValue))
             {
                 oldValue = newValue;

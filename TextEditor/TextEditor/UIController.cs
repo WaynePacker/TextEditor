@@ -9,13 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using TextEditor.Base;
 using TextEditor.Commands;
 using TextEditor.Components;
 using TextEditor.Interfaces;
 
 namespace TextEditor
 {
-    public class UIController : IUIController, INotifyPropertyChanged
+    public class UIController : ANotifyBase, IUIController
     {
         private static IUIController instance;
         IDocument activeDocument;
@@ -27,32 +28,27 @@ namespace TextEditor
             newCommand = new RelayCommand(p => OnNew());
             openCommand = new RelayCommand(p => OnOpen());
             saveCommand = new RelayCommand(p => OnSave(), p => CanSave());
-            closeCommand = new RelayCommand(p => OnClose(), p => CanClose());
+            closeCommand = new RelayCommand(p => OnClose(p), p => CanClose());
 
             CurrentOpenFiles = new ObservableCollection<IDocument>();
+            this.PropertyChanged += UIController_PropertyChanged;
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public event PropertyChangedEventHandler ActiveDocumentChanged;
-        public event PropertyChangedEventHandler CurrentOpenFilesChanged;
- 
-        protected virtual void RaisePropertyChanged(string propertyName)
+        private void UIController_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            switch (propertyName)
+            switch (e.PropertyName)
             {
                 case nameof(ActiveDocument):
-                    ActiveDocumentChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                    ActiveDocumentChanged.Invoke(this, new PropertyChangedEventArgs(e.PropertyName));
                     break;
                 case nameof(CurrentOpenFiles):
-                    CurrentOpenFilesChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
-                    break;
-         
-                default: PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                    CurrentOpenFilesChanged.Invoke(this, new PropertyChangedEventArgs(e.PropertyName));
                     break;
             }
-
-            
         }
+
+        public event PropertyChangedEventHandler ActiveDocumentChanged;
+        public event PropertyChangedEventHandler CurrentOpenFilesChanged;
 
         public static IUIController Instance
         {
@@ -71,11 +67,7 @@ namespace TextEditor
 
             set
             {
-                if (activeDocument != value)
-                {
-                    activeDocument = value;
-                    RaisePropertyChanged(nameof(ActiveDocument));
-                }
+                SetAndRaisePropertyChanged(ref activeDocument, value);
             }
         }
 
@@ -152,11 +144,12 @@ namespace TextEditor
             return true;
         }
 
-        private void OnClose()
+        private void OnClose(object documentToClose = null)
         {
-            if (ActiveDocument.HasChanges)
+            var toClose = (IDocument)documentToClose ?? ActiveDocument;
+            if (toClose.HasChanges)
             {
-                var res = MessageBox.Show(string.Format("Save changes for file '{0}'?", ActiveDocument.Name), "Save Changes", MessageBoxButton.YesNoCancel);
+                var res = MessageBox.Show(string.Format("Save changes for file '{0}'?", toClose.Name), "Save Changes", MessageBoxButton.YesNoCancel);
                 if (res == MessageBoxResult.Cancel)
                     return;
                 if (res == MessageBoxResult.Yes)
@@ -165,7 +158,7 @@ namespace TextEditor
                 }
             }
 
-            CurrentOpenFiles.Remove(ActiveDocument);
+            CurrentOpenFiles.Remove(toClose);
             ActiveDocument = CurrentOpenFiles.FirstOrDefault();
         }
     }

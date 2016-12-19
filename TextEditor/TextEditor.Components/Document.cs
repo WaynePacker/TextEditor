@@ -8,7 +8,7 @@ using TextEditor.Interfaces;
 
 namespace TextEditor.Components
 {
-    public class Document : AViewModel, IDocument
+    public class Document : ANotifyBase, IDocument
     {
         private string content;
         private bool hasChanges;
@@ -33,8 +33,7 @@ namespace TextEditor.Components
             get { return content; }
             set
             {
-                this.content = value;
-                RaisePropertyChanged(nameof(Content));
+                SetAndRaisePropertyChanged(ref this.content, value);
                 this.HasChanges = true;
             }
         }
@@ -49,9 +48,7 @@ namespace TextEditor.Components
             set
             {
                 if (value)
-                    this.hasChanges = value;
-                
-                RaisePropertyChanged(nameof(HasChanges));
+                    SetAndRaisePropertyChanged(ref this.hasChanges, value);
             }
         }
     }

@@ -14,8 +14,6 @@ C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor\obj\Debug\Tex
 C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor\obj\Debug\TextEditor.csproj.GenerateResource.Cache
 C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor\obj\Debug\TextEditor.exe
 C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor\obj\Debug\TextEditor.pdb
-C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor\bin\Debug\TextEditor.Components.dll
-C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor\bin\Debug\TextEditor.Components.pdb
 C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor\obj\Debug\UIControls\Toolbar\Toolbar.g.cs
 C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor\obj\Debug\UIControls\Toolbar\Toolbar.baml
 C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor\obj\Debug\GeneratedInternalTypeHelper.g.cs
