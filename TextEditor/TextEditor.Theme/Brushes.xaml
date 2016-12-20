@@ -11,8 +11,15 @@
 
    
     <SolidColorBrush x:Key="BaseLight" Color="White"/>
+    <SolidColorBrush x:Key="BaseLightFont" Color="White"/>
     <SolidColorBrush x:Key="BaseDark" Color="Black"/>
+    <SolidColorBrush x:Key="BaseDarkFont" Color="Black"/>
 
     <SolidColorBrush x:Key="WorkspaceBackground" Color="{StaticResource Grey900}"/>
+
+    <SolidColorBrush x:Key="MenuItemFont" Color="White"/>
+    <SolidColorBrush x:Key="MenuItemDisabledFont" Color="{StaticResource Grey500}"/>
+    <SolidColorBrush x:Key="MenuItemHover" Color="{StaticResource Blue500}"/>
+    
 
 </ResourceDictionary>

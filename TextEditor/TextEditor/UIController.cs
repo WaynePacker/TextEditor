@@ -135,6 +135,9 @@ namespace TextEditor
                         ActiveDocument.FilePath = saveFileDialog.FileName;
             }
 
+            if (string.IsNullOrEmpty(ActiveDocument.FilePath))
+                return;
+
             File.WriteAllText(ActiveDocument.FilePath, ActiveDocument.Content);
             ActiveDocument.HasChanges = false;
         }

@@ -4,7 +4,11 @@
              x:Class="TextEditor.App"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <ResourceDictionary Source="/TextEditor.Theme;component/ColourFulTheme.xaml" >
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/TextEditor.Theme;component/ColourFulTheme.xaml"/>
+                <ResourceDictionary Source="/TextEditor.Theme;component/Brushes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

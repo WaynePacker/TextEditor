@@ -13,5 +13,10 @@ namespace TextEditor
         }
 
         public MainViewModel ViewModel { get; private set; }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

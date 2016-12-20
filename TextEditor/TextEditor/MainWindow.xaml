@@ -11,7 +11,7 @@
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     </Window.Resources>
 
-    <DockPanel>
+    <DockPanel Background="{StaticResource WorkspaceBackground}">
         
         <Menu ToolBar.OverflowMode="Never" DockPanel.Dock="Top">
             <MenuItem Command="{Binding OpenCommand}" Header="Open" />
@@ -19,7 +19,6 @@
             <MenuItem Command="{Binding SaveCommand}" Header="Save" />
             <MenuItem Command="{Binding CloseCommand}" Header="Close" />
         </Menu>
-
 
         <TabControl x:Name="TheTabControl" ItemsSource="{Binding Files}" Grid.Row="1" SelectedItem="{Binding SelectedItem}">
             <TabControl.ItemTemplate>
