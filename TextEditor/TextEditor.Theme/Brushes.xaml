@@ -3,9 +3,16 @@
                     xmlns:local="clr-namespace:TextEditor.Theme">
 
     <Color x:Key="Grey900">#212121</Color>
+    <Color x:Key="Grey500">#9E9E9E</Color>
+    
+    <Color x:Key="Red500">#F44336</Color>
+    
+    <Color x:Key="Blue500">#2196F3</Color>
 
+   
     <SolidColorBrush x:Key="BaseLight" Color="White"/>
     <SolidColorBrush x:Key="BaseDark" Color="Black"/>
 
+    <SolidColorBrush x:Key="WorkspaceBackground" Color="{StaticResource Grey900}"/>
 
 </ResourceDictionary>

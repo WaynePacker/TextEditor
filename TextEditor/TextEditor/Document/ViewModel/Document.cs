@@ -46,7 +46,8 @@ namespace TextEditor.Components
             set
             {
                 SetAndRaisePropertyChanged(ref this.content, value);
-                this.HasChanges = true;
+                if(value.Length >= 1)
+                    this.HasChanges = true;
             }
         }
 

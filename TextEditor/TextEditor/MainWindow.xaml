@@ -4,8 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TextEditor"
-        xmlns:controls="clr-namespace:TextEditor.UIControls"
-        xmlns:Theme="clr-namespace:TextEditor.Theme;assembly=TextEditor.Theme"
         mc:Ignorable="d"
         Title="Text Editor" Height="700" Width="1050">
 
@@ -13,17 +11,15 @@
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     </Window.Resources>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <DockPanel>
         
-        <controls:Toolbar Grid.Row="0"
-                           OpenCommand="{Binding OpenCommand}"
-                           NewCommand="{Binding NewCommand}"
-                           SaveCommand="{Binding SaveCommand}"
-                           CloseCommand="{Binding CloseCommand}"/>
+        <Menu ToolBar.OverflowMode="Never" DockPanel.Dock="Top">
+            <MenuItem Command="{Binding OpenCommand}" Header="Open" />
+            <MenuItem Command="{Binding NewCommand}" Header="New" />
+            <MenuItem Command="{Binding SaveCommand}" Header="Save" />
+            <MenuItem Command="{Binding CloseCommand}" Header="Close" />
+        </Menu>
+
 
         <TabControl x:Name="TheTabControl" ItemsSource="{Binding Files}" Grid.Row="1" SelectedItem="{Binding SelectedItem}">
             <TabControl.ItemTemplate>
@@ -39,9 +35,13 @@
             </TabControl.ItemTemplate>
             <TabControl.ContentTemplate>
                 <DataTemplate>
-                    <TextBox Text="{Binding Content}"/>
+                    <TextBox Name="tbMultiLine"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                             VerticalScrollBarVisibility="Visible"
+                             Text="{Binding Content}"/>
                 </DataTemplate>
             </TabControl.ContentTemplate>
         </TabControl>
-    </Grid>
+    </DockPanel>
 </Window>
