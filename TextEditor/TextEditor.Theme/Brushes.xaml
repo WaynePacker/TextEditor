@@ -3,23 +3,33 @@
                     xmlns:local="clr-namespace:TextEditor.Theme">
 
     <Color x:Key="Grey900">#212121</Color>
+    <Color x:Key="Grey800">#424242</Color>
+    <Color x:Key="Grey700">#616161</Color>
     <Color x:Key="Grey500">#9E9E9E</Color>
     
     <Color x:Key="Red500">#F44336</Color>
     
     <Color x:Key="Blue500">#2196F3</Color>
+    <Color x:Key="Blue900">#448AFF</Color>
 
-   
+    <Color x:Key="Amber500">#FFC107</Color>
+
+
     <SolidColorBrush x:Key="BaseLight" Color="White"/>
     <SolidColorBrush x:Key="BaseLightFont" Color="White"/>
     <SolidColorBrush x:Key="BaseDark" Color="Black"/>
     <SolidColorBrush x:Key="BaseDarkFont" Color="Black"/>
 
-    <SolidColorBrush x:Key="WorkspaceBackground" Color="{StaticResource Grey900}"/>
+    <SolidColorBrush x:Key="WorkspaceBackground" Color="{StaticResource Grey800}"/>
 
     <SolidColorBrush x:Key="MenuItemFont" Color="White"/>
     <SolidColorBrush x:Key="MenuItemDisabledFont" Color="{StaticResource Grey500}"/>
     <SolidColorBrush x:Key="MenuItemHover" Color="{StaticResource Blue500}"/>
-    
+
+    <SolidColorBrush x:Key="DocumentBackground" Color="{StaticResource Grey800}"/>
+    <SolidColorBrush x:Key="DocumentFont" Color="{StaticResource Amber500}"/>
+    <SolidColorBrush x:Key="DocumentTabSelected" Color="{StaticResource Blue500}"/>
+    <SolidColorBrush x:Key="DocumentTabNotSelected" Color="{StaticResource Grey700}"/>
+    <SolidColorBrush x:Key="DocumentHeadingFont" Color="White"/>
 
 </ResourceDictionary>

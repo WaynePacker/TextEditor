@@ -162,7 +162,8 @@ namespace TextEditor
             }
 
             CurrentOpenFiles.Remove(toClose);
-            ActiveDocument = CurrentOpenFiles.FirstOrDefault();
+            if(toClose == ActiveDocument)
+                ActiveDocument = CurrentOpenFiles.FirstOrDefault();
         }
     }
 
