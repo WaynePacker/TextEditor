@@ -1,7 +1,6 @@
 C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor.Theme\bin\Debug\TextEditor.Theme.exe.config
 C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor.Theme\bin\Debug\TextEditor.Theme.exe
 C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor.Theme\bin\Debug\TextEditor.Theme.pdb
-C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor.Theme\obj\Debug\TextEditor.Theme.csprojResolveAssemblyReference.cache
 C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor.Theme\obj\Debug\MainWindow.g.cs
 C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor.Theme\obj\Debug\App.g.cs
 C:\Users\Anthony\Documents\GitHub\TextEditor\TextEditor\TextEditor.Theme\obj\Debug\TextEditor.Theme_MarkupCompile.cache

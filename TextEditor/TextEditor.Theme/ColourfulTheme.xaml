@@ -38,6 +38,8 @@
 
     <Style TargetType="{x:Type TabControl}">
         <Setter Property="Background" Value="{StaticResource WorkspaceBackground}"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
     </Style>
 
     <Style TargetType="{x:Type TabItem}">
@@ -46,7 +48,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabItem}">
                     <Grid>
-                        <Border Name="Border" Margin="0,0,0,0" Background="{StaticResource DocumentTabSelected}" BorderBrush="{StaticResource DocumentTabSelected}" BorderThickness="0">
+                        <Border Name="Border" Margin="0" Background="{StaticResource DocumentTabSelected}" BorderBrush="{StaticResource DocumentTabSelected}" BorderThickness="0">
                             <ContentPresenter VerticalAlignment="Center"
                                               HorizontalAlignment="Center"
                                               ContentSource="Header" Margin="12,2,12,2"
@@ -74,4 +76,65 @@
     </Style>
 
 
+
+    <Style x:Key="DocumentTabCloseButton" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="White"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="2"/>
+        <Setter Property="Margin" Value="10,2,2,2"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Name="border" BorderBrush="White" Padding="2" BorderThickness="1">
+                        <Canvas Name="canvas" Height="8" Width="8">
+                            <Path Name="cross" Stroke="White" StrokeThickness="2">
+                                <Path.Data>
+                                    <PathGeometry>
+                                        <PathGeometry.Figures>
+                                            <PathFigure StartPoint="0,0">
+                                                <LineSegment Point="8,8"/>
+                                            </PathFigure>
+                                            <PathFigure StartPoint="0,8">
+                                                <LineSegment Point="8,0"/>
+                                            </PathFigure>
+                                        </PathGeometry.Figures>
+                                    </PathGeometry>
+                                </Path.Data>
+                            </Path>
+                        </Canvas>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="White"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource DocumentTabCloseButtonHover}"/>
+                            <Setter TargetName="cross" Property="Stroke" Value="{StaticResource DocumentTabCloseButtonHoverStroke}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style x:Key="DocumentWorkSpace" TargetType="{x:Type TextBox}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <TextBox Text="{TemplateBinding Text}"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                             VerticalScrollBarVisibility="Auto"
+                             Background="{StaticResource DocumentBackground}"
+                             Foreground="{StaticResource DocumentFont}"
+                             FontSize="16"
+                             Padding="5"/>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>
